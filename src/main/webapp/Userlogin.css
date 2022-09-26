@@ -1,0 +1,94 @@
+@charset "UTF-8";
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;   
+}
+body{
+    display: flex;
+    justify-content: center; /*在容器中央对齐弹性项目*/
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-image:url(images/loginBg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+.login-box{
+    display: flex;
+    justify-content: center;  /*居中排列*/
+    align-content:space-around;
+    flex-wrap: wrap;  /*项目排在一条线上，换行，第一行在上方*/
+    width: 600px;
+    height: 400px;
+    background-color: rgba(255, 69, 0,.4);
+    border: 10px;
+    padding: 20px 50px;
+    border-radius: 20px;
+}
+.login-box h4{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    font-size: 40px;
+}
+.login-box .input-box{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-35px);
+}
+.login-box  .input-box  .input-text{
+    width: 100%;
+    display: flex;
+    justify-content: center;  
+}
+.login-box  .input-box  .input-text span{
+    color: aliceblue;
+    font-size: 18px;
+    margin-top: 20px;
+ 
+}
+.login-box  .input-box  .input-text input{
+    border: 0;
+    padding: 6px;
+    border-bottom: 1px solid white;
+    background-color: #ffffff00;
+    color: #fff;
+    margin-top: 20px;
+}
+.login-box  .input-box button {
+	border: 0;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    width: 145px;
+    height: 25px;
+    color: #fff;
+    background:linear-gradient(to right, #f83600 0%, #f9d423 100%);
+    border-radius: 25px;
+    cursor: pointer;
+
+
+
+}
+
+
+}.login-box  .input-box  .signup{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    color: #fff;
+    font-size: 20px;
+ 
+}
+.login-box  .input-box  .signup a{
+    color: #1E90FF	;
+    text-decoration: none;
+}

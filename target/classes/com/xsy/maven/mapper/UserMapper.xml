@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.xsy.maven.mapper.UserMapper">
+
+	
+	<insert id="insertUser">
+		<!-- void insertUser(User user); -->
+		insert into user values(null,#{userName},#{password},#{phone},"normal");
+	</insert>
+	
+	
+	<select id="checkLogin" resultType="User" >
+		<!-- User checkLogin(@Param("username") String username,@Param("password")String password); -->
+		select * from user where userName = #{username} and password=#{password}
+	</select>
+
+	
+	<select id="checkSignIn" resultType="User" >
+		<!-- User checkSignIn(String username); -->
+		select * from user where userName = #{username}
+		
+	</select>
+
+	<select id="getAllUser" resultType="com.xsy.maven.qaparty.User" >
+		<!-- List<User> getAllUser(); -->
+		select * from user
+	</select>
+	
+	<!-- void insertExam(Exam exam); -->
+	<insert id="insertExam">
+		insert into exam values(null,#{testType},#{testTitle},#{optionA},#{optionB},#{optionC},#{testAnswer})
+	</insert>
+	
+	<!-- void deleteExam(@Param("testId") String testId); -->
+	<delete id="deleteExam">
+		delete from exam where testId=#{testId}
+	</delete>
+	
+	<!-- void updateExam(Exam exam); -->
+	<update id="updateExam">
+		update exam set testTitle=#{testTitle},optionA=#{optionA},
+		optionB=#{optionB},optionC=#{optionC},testAnswer=#{testAnswer} where testId=#{testId}
+	</update>
+	
+	<select id="getExam" resultType="com.xsy.maven.qaparty.Exam" >
+	<!-- List<Exam> getExam(); -->
+		select * from exam
+	</select>
+
+	<!-- Exam getExambyId(@Param("testId") String testId) ; -->
+	<select id="getExambyId" resultType="com.xsy.maven.qaparty.Exam">
+		select * from exam where testId=#{testId}
+	</select>
+	
+	<!-- String getAnswerbyId(@Param("testId")String testId ); -->
+	<select id="getAnswerbyId" resultType="String">
+		select testAnswer from exam where testId=#{testId}
+	</select>
+	
+	<!-- int selectExamSum(); -->
+	<select id="selectExamSum"  resultType="Integer">
+		select COUNT(*) from exam
+	</select>
+
+	<!-- void updateUser(User user); -->
+	<update id="updateUser">
+		update user set password=#{password},phone=#{phone} where userName=#{userName}
+	</update>
+
+	<!-- void deleteUser(String username); -->
+	<delete id="deleteUser">
+		delete from user where userName=#{username};
+	</delete>
+	
+	
+	<!-- String getIdentity(String username); -->
+	<select id="getIdentity" resultType="String">
+		select identity from user where userName=#{username};
+	</select>
+	
+	<!-- void insertScore(Score score); -->
+	<insert id="insertScore">
+		insert into score values(null,#{name},#{userscore},NOW());
+	</insert>
+
+	<!-- Score selectUserbyName(@Param("name") String username); -->
+	<select id="selectUserbyName" resultType="com.xsy.maven.qaparty.Score" >
+		select * from score where name=#{name}
+	</select>
+
+	<!-- void updateScore(Score score); -->
+	<update id="updateScore" >
+		update score set userscore=#{userscore},time=NOW() where name=#{name}
+	</update>
+	
+	<!-- List<Score> getScoresOrder(); -->
+	<select id="getScoresOrder" resultType="com.xsy.maven.qaparty.Score">
+		select * from score order by userscore desc
+	</select>
+
+</mapper>

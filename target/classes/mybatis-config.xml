@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- 引入 properties 文件 -->
+	<properties resource="jdbc.properties" />
+	
+<!-- 设置具体类型的别名 不设置alias 默认别名：类名 不区分大小写-->
+	<!-- 设置package 设置别名，其包下全部拥有默认别名 -->
+	<typeAliases>
+		<package name="com.xsy.maven.qaparty" />
+		<!-- <typeAlias type="com.xsy.maven.qaparty.User" alias="dbUser"/> -->
+	</typeAliases>
+
+
+	<environments default="development">
+		<!-- 配置 连接 数据库 环境 -->
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driver}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<!-- 引入 mybatis 的映射文件 -->
+		<!--	<mapper resource="mapper/UserMapper.xml" />  	 -->
+		
+		<package name="com.xsy.maven.mapper"/>
+	</mappers>
+</configuration>
